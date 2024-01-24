@@ -30,13 +30,16 @@ async function startServer({ port, lockVars, perMessageDeflate }) {
     }),
   );
 
+  //Handle the connection using another file if protocal is websocket (wss)
   app.ws("/", cloudServer.handleWsConnection);
 
   app.use((req, res) => {
     res.status(404).sendFile(path.resolve(__dirname, "../static/404.html"));
+    //If page not found, return 404 to aviod errors and misunderstanding
   });
 
   app.listen(port, async () => {
+    //Log info
     console.log(colours.green("Your server is now running!"));
     console.log("You can access it...");
     console.log(
