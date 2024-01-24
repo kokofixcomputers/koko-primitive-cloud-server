@@ -2,6 +2,7 @@ const path = require("path");
 
 const { readFile, writeFile } = require("./util.js");
 
+//For verifing the project id
 const validProjectId = /^\w+$/;
 
 class CloudServer {
@@ -27,6 +28,7 @@ class CloudServer {
         `Encountered an error parsing the cloud variable data at cloud-vars/${id}.json:`,
       );
       console.error(err);
+      //File might be corrupt
       console.error(
         "This might mean that the file is corrupt, but it may be recoverable.",
       );
@@ -59,7 +61,8 @@ class CloudServer {
   reply(ws, messages) {
     ws.send(messages.map((message) => JSON.stringify(message) + "\n").join(""));
   }
-
+  
+  //Handle the websocket (wss) messages and connections
   handleWsConnection(ws) {
     let handshaken = false;
     let project = null;
