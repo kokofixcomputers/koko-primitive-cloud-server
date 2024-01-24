@@ -53,6 +53,7 @@ When the client first connects to the server, Scratch sends a "handshake" messag
 { "method": "set", "name": "☁ cool cloud variable", "value": "45643563456" }
 { "method": "set", "name": "☁ epic cloud variable", "value": "10239489031" }
 { "method": "set", "name": "☁ newish variable", "value": "0" }
-```
 
-After that the client can send a "set" message (same structure) to the server, which will broadcast it to the other clients on the project.
+// client -> server
+{ "method": "set", "name": "☁ cool cloud variable", "value": "123" }
+```
