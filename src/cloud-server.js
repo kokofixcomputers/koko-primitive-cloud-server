@@ -30,7 +30,7 @@ class CloudServer {
       console.error(err);
       //File might be corrupt
       console.error(
-        "This might mean that the file is corrupt, but it may be recoverable.",
+        "This might mean that the file is corrupt, but it may be recoverable. Manual action to recover the file may be required.",
       );
       return null;
     }
