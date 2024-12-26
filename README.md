@@ -45,7 +45,7 @@ This "stashes" your local changes, pulls (downloads) the new files from GitHub, 
 
 All WebSocket messages are JSON strings; the server may send multiple JSON objects separated by a newline character, but the client may not do that back.
 
-When the client first connects to the server, Scratch sends a "handshake" message, which I think lets the server know which project it is on so the server can then send a series of "set" messages to initialize the client's cloud variables.
+When the client first connects to the server, Scratch sends a "handshake" message, which lets the server know which project it is on so the server can then send a series of "set" messages to initialize the client's cloud variables.
 
 ```json
 // client -> server
@@ -57,5 +57,8 @@ When the client first connects to the server, Scratch sends a "handshake" messag
 { "method": "set", "name": "☁ newish variable", "value": "0" }
 
 // client -> server
+{ "method": "set", "name": "☁ cool cloud variable", "value": "123" }
+
+// server -> client
 { "method": "set", "name": "☁ cool cloud variable", "value": "123" }
 ```
